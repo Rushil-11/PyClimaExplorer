@@ -1,0 +1,220 @@
+/* 1. RESET & LAYOUT */
+[data-testid="stAppViewContainer"] > section:nth-child(2) > div:nth-child(1) {
+    padding: 0 !important;
+    margin: 0 !important;
+    max-width: 100% !important;
+}
+
+[data-testid="stHeader"] {
+    background-color: transparent !important;
+    background: transparent !important;
+    height: 0px !important;
+    min-height: 0px !important;
+    overflow: visible !important;
+}
+
+[data-testid="stHeader"] [data-testid="stStatusWidget"],
+[data-testid="stHeader"] #MainMenu,
+[data-testid="stHeader"] [data-testid="stDecoration"] {
+    display: none !important;
+}
+
+.stApp {
+    background: linear-gradient(rgba(0, 20, 40, 0.65), rgba(0, 20, 40, 0.65)), 
+                url("https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* 2. NAVIGATION BAR */
+.header-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 6%;
+    background-color: #ffffff;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 9999;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2.5rem;
+    align-items: center;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 4px;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #0056b3;
+}
+
+.reg-button {
+    background-color: #003366 !important;
+    color: #ffffff !important;
+    padding: 10px 22px !important;
+    border-radius: 6px;
+    font-weight: 700 !important;
+}
+
+/* 1. PUSH THE TITLE DOWN */
+.title-wrapper {
+    margin-top: 80px !important; /* Adjust this number to move it higher or lower */
+}
+
+.main-title {
+    color: #ffffff !important;
+    font-size: 3.5rem !important;
+    font-weight: 800 !important;
+    line-height: 1.1;
+    text-shadow: 2px 4px 10px rgba(0,0,0,0.6);
+    margin-bottom: 15px;
+}
+
+/* 2. THE WHITE LOGIN CARD (Reduced Size) */
+[data-testid="stForm"] {
+    background-color: rgba(255, 255, 255, 0.95) !important;
+    
+    /* Reduced padding to shrink the white space around inputs */
+    padding: 25px 30px !important; 
+    
+    border-radius: 12px !important; /* Slightly smaller corner curve */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4) !important;
+    border: none !important;
+    
+    /* Prevents the card from getting too wide on large screens */
+    max-width: 380px !important; 
+    
+    /* Keeps the card centered within its column */
+    margin: 0 auto !important; 
+}
+
+/* Adjust the heading inside the card to take up less vertical space */
+[data-testid="stForm"] h2 {
+    margin-bottom: 10px !important;
+    font-size: 1.8rem !important;
+}
+
+/* 3. FULL-WIDTH SIGN IN BUTTON */
+[data-testid="stFormSubmitButton"] button {
+    width: 100% !important; /* Forces the button to stretch */
+    background-color: #0056b3 !important;
+    color: #ffffff !important;
+    padding: 12px !important;
+    font-size: 1.1rem !important;
+    font-weight: bold !important;
+    border-radius: 6px !important;
+    border: none !important;
+    margin-top: 10px !important;
+}
+
+[data-testid="stFormSubmitButton"] button:hover {
+    background-color: #003366 !important;
+}
+
+/* Make checkbox text match the card */
+[data-testid="stCheckbox"] label p {
+    color: #555 !important;
+    font-size: 0.85rem !important;
+    font-weight: 500 !important;
+}
+
+/* Style the checkbox to match the theme */
+[data-testid="stCheckbox"] label p {
+    color: #555 !important;
+    font-size: 0.85rem !important;
+    font-weight: 500 !important;
+}
+
+[data-testid="stCheckbox"] div[role="checkbox"] {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+/* --- 6. FULL MULTI-COLUMN FOOTER --- */
+/* 6. ORIGINAL FIXED FOOTER */
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #001a33;
+    color: #d1d1d1;
+    text-align: center;
+    padding: 12px 0;
+    font-size: 0.8rem;
+    z-index: 999;
+    border-top: 2px solid #0056b3;
+}
+/* --- 7. SIDEBAR OVERRIDES --- */
+/* Force the sidebar to be white and dock BELOW the custom header */
+[data-testid="stSidebar"] {
+    background-color: #ffffff !important;
+    margin-top: 72px !important; /* Pushes the sidebar down exactly below the header */
+    height: calc(100vh - 72px) !important; /* Prevents the sidebar from extending past the bottom of the screen */
+    border-right: 1px solid #e2e8f0 !important;
+    z-index: 999 !important; /* Keeps it lower than the header's 9999 */
+}
+
+/* Make sure the radio button text in the sidebar turns dark so it's readable */
+[data-testid="stSidebar"] .stRadio label p {
+    color: #1e293b !important;
+    font-weight: 600 !important;
+    font-size: 1.05rem !important;
+}
+
+/* Change the hover state for the sidebar buttons */
+[data-testid="stSidebar"] .stRadio div[role="radiogroup"] > label:hover {
+    background-color: #f1f5f9 !important;
+    border-radius: 8px !important;
+}
+
+/* Custom Sidebar Menu Button (using native sidebar collapse/expand button) */
+button[data-testid="stSidebarCollapseButton"] {
+    position: fixed !important;
+    left: 15px !important;
+    top: 85px !important;
+    z-index: 999999 !important;
+    background-color: #0f172a !important;
+    color: #f8fafc !important;
+    border: 1px solid #334155 !important;
+    border-radius: 6px !important;
+    padding: 8px 12px !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    font-family: 'Space Grotesk', sans-serif !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.5) !important;
+    transition: all 0.2s ease !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+button[data-testid="stSidebarCollapseButton"]:hover {
+    background-color: #1e293b !important;
+    border-color: #38bdf8 !important;
+}
+
+/* Hide the native SVG icon of the button */
+button[data-testid="stSidebarCollapseButton"] svg {
+    display: none !important;
+}
+
+/* Insert "☰ Menu" text inside the button */
+button[data-testid="stSidebarCollapseButton"]::after {
+    content: "☰ Menu" !important;
+    display: inline-block !important;
+}
